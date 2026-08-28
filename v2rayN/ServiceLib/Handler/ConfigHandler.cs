@@ -2611,7 +2611,7 @@ public static class ConfigHandler
             items = await AppManager.Instance.RoutingItems();
         }
 
-        if (!blImportAdvancedRules && items.Count(u => u.Remarks.StartsWith(ver)) > 0)
+        if (!blImportAdvancedRules && items.Count() > 0) // items.Count(u => u.Remarks.StartsWith(ver)) > 0)
         {
             //migrate
             //TODO Temporary code to be removed later
