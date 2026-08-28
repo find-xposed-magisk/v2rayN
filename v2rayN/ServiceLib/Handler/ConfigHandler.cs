@@ -1753,15 +1753,13 @@ public static class ConfigHandler
         {
             lstProfiles = SingboxFmt.ResolveToCustomOutbound(strData, subRemarks);
         }
-        if (lstProfiles.Count == 0)
+        if (lstProfiles.Count > 0)
         {
-            return -1;
-        }
-
-        var count = await AddBatchCustomServers(config, lstProfiles, subid, isSub);
-        if (count > 0)
-        {
-            return count;
+            var count = await AddBatchCustomServers(config, lstProfiles, subid, isSub);
+            if (count > 0)
+            {
+                return count;
+            }
         }
 
         if (HtmlPageFmt.IsHtmlPage(strData))
@@ -1801,15 +1799,13 @@ public static class ConfigHandler
             _ => null,
         };
 
-        if ((lstProfiles?.Count ?? 0) == 0)
+        if (lstProfiles?.Count > 0)
         {
-            return -1;
-        }
-
-        var count = await AddBatchCustomServers(config, lstProfiles, subid, isSub);
-        if (count > 0)
-        {
-            return count;
+            var count = await AddBatchCustomServers(config, lstProfiles, subid, isSub);
+            if (count > 0)
+            {
+                return count;
+            }
         }
 
         return await SaveCustomRawFileServer(config, strData, subid, isSub, subItem, customCoreType);
