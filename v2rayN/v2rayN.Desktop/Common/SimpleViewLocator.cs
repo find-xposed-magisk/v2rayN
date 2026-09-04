@@ -70,7 +70,8 @@ public class SimpleViewLocator : IDataTemplate
     {
         return vmType == typeof(MsgViewModel)
                || vmType == typeof(ClashProxiesViewModel)
-               || vmType == typeof(ClashConnectionsViewModel);
+               || vmType == typeof(ClashConnectionsViewModel)
+               || vmType == typeof(ProfilesViewModel);
     }
 
     private static Control CreateView(Func<Control?> factory, Type vmType)
